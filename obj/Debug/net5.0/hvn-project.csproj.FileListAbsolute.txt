@@ -27,6 +27,7 @@ C:\Users\leona\source\repos\hvn-project\bin\Debug\net5.0\runtimes\win\native\sna
 C:\Users\leona\source\repos\hvn-project\bin\Debug\net5.0\runtimes\linux\native\libmongocrypt.so
 C:\Users\leona\source\repos\hvn-project\bin\Debug\net5.0\runtimes\osx\native\libmongocrypt.dylib
 C:\Users\leona\source\repos\hvn-project\bin\Debug\net5.0\runtimes\win\native\mongocrypt.dll
+C:\Users\leona\source\repos\hvn-project\obj\Debug\net5.0\hvn-project.csproj.AssemblyReference.cache
 C:\Users\leona\source\repos\hvn-project\obj\Debug\net5.0\hvn-project.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\leona\source\repos\hvn-project\obj\Debug\net5.0\hvn-project.AssemblyInfoInputs.cache
 C:\Users\leona\source\repos\hvn-project\obj\Debug\net5.0\hvn-project.AssemblyInfo.cs
@@ -41,4 +42,3 @@ C:\Users\leona\source\repos\hvn-project\obj\Debug\net5.0\hvn-project.dll
 C:\Users\leona\source\repos\hvn-project\obj\Debug\net5.0\ref\hvn-project.dll
 C:\Users\leona\source\repos\hvn-project\obj\Debug\net5.0\hvn-project.pdb
 C:\Users\leona\source\repos\hvn-project\obj\Debug\net5.0\hvn-project.genruntimeconfig.cache
-C:\Users\leona\source\repos\hvn-project\obj\Debug\net5.0\hvn-project.csproj.AssemblyReference.cache

@@ -1,5 +1,7 @@
 ﻿using hvn_project.Models;
 using MongoDB.Driver;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace hvn_project.Repository
 {
@@ -22,10 +24,33 @@ namespace hvn_project.Repository
             _patrimonyDb = _database.GetCollection<PatrimonyItems>("PatrimonyItems");
         }
 
-        public async void InsertAsync(PatrimonyItems item)
+        public async Task InsertPatrimonyItemAsync(PatrimonyItems item)
         {
             await _patrimonyDb.InsertOneAsync(item);
         }
 
+        public async Task UpdatePatrimonyItemAsync(PatrimonyItems item)
+        {
+            await _patrimonyDb.ReplaceOneAsync(d => d.PatrimonyNumber == item.PatrimonyNumber, item);
+        }
+
+        public async Task DeletePatrimonyItemAsync(PatrimonyItems item)
+        {
+            await _patrimonyDb.DeleteOneAsync(d => d.Id == item.Id);
+        }
+
+        public async Task<List<PatrimonyItems>> GetPatrimonyItensListAsync()
+        {
+            var patrimonyAll = await _patrimonyDb.FindAsync(d => true);
+
+            return patrimonyAll.ToList();
+        }
+
+        public async Task<List<PatrimonyItems>> GetPatrimonyItensByFilterAsync(string filter)
+        {
+            var patrimonyFiltered = await _patrimonyDb.FindAsync(d => d.PatrimonyNumber == filter || d.Description.Contains(filter));
+
+            return patrimonyFiltered.ToList();
+        }
     }
 }
