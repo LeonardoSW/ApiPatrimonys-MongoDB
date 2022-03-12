@@ -34,9 +34,9 @@ namespace hvn_project.Repository
             await _patrimonyDb.ReplaceOneAsync(d => d.PatrimonyNumber == item.PatrimonyNumber, item);
         }
 
-        public async Task DeletePatrimonyItemAsync(PatrimonyItems item)
+        public async Task DeletePatrimonyItemByIdAsync(string id)
         {
-            await _patrimonyDb.DeleteOneAsync(d => d.Id == item.Id);
+            await _patrimonyDb.DeleteOneAsync(d => d.Id == id);
         }
 
         public async Task<List<PatrimonyItems>> GetPatrimonyItensListAsync()
@@ -49,6 +49,13 @@ namespace hvn_project.Repository
         public async Task<List<PatrimonyItems>> GetPatrimonyItensByFilterAsync(string filter)
         {
             var patrimonyFiltered = await _patrimonyDb.FindAsync(d => d.PatrimonyNumber == filter || d.Description.Contains(filter));
+
+            return patrimonyFiltered.ToList();
+        }
+
+        public async Task<List<PatrimonyItems>> GetPatrimonyItemByIdAsync(string id)
+        {
+            var patrimonyFiltered = await _patrimonyDb.FindAsync(d => d.Id == id);
 
             return patrimonyFiltered.ToList();
         }

@@ -1,4 +1,5 @@
 using hvn_project.Repository;
+using hvn_project.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -27,6 +28,7 @@ namespace hvn_project
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IMongoRepository,MongoRepository>();
+            services.AddScoped<IHandlerPatrimony, HandlerPatrimony>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

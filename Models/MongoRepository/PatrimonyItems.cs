@@ -10,13 +10,13 @@ namespace hvn_project.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [BsonElement("description")]
         public string Description { get; set; }
 
         [BsonElement("status")]
-        public int Status { get; set; }
+        public PatrimonyStatus Status { get; set; }
 
         [BsonElement("createDate")]
         public DateTime CreateDate { get; set; }
