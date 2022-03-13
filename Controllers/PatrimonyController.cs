@@ -54,7 +54,7 @@ namespace hvn_project.Controllers
         }
 
         [HttpPost("/patrimony/create")]
-        public async Task<IActionResult> InsertPatrimony([FromBody] PatrimonyItems item)
+        public async Task<IActionResult> InsertPatrimony([FromBody] ItemCreate item)
         {
             var insertRespose = await handlerPatrimony.InsertItemAsync(item);
             

@@ -15,7 +15,7 @@ namespace hvn_project.Services
             database = new MongoRepository();
         }
 
-        public async Task<string> validateNewItem(PatrimonyItems item)
+        public async Task<string> validateNewItem(ItemCreate item)
         {
             var validation = "";
 

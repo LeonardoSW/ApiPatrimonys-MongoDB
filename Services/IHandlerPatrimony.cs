@@ -8,7 +8,7 @@ namespace hvn_project.Services
     {
         Task<List<PatrimonyItems>> GetListItemsByFilterAsync(string filter);
         Task<List<PatrimonyItems>> GetListItemsAsync();
-        Task<string> InsertItemAsync(PatrimonyItems item);
+        Task<string> InsertItemAsync(ItemCreate item);
         Task<string> UpdateItemAsync(ItemUpdate update);
         Task<string> DeleteItemAsync(string itemId);
     }

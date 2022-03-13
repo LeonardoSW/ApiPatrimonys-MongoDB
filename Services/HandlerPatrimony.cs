@@ -41,9 +41,8 @@ namespace hvn_project.Services
             }
         }
 
-        public async Task<string> InsertItemAsync(PatrimonyItems item)
+        public async Task<string> InsertItemAsync(ItemCreate item)
         {
-            item.Id = null;
             item.CreateDate = DateTime.UtcNow.AddHours(-3);
             item.UpdateDate = DateTime.UtcNow.AddHours(-3);
 
@@ -53,7 +52,8 @@ namespace hvn_project.Services
 
                 if (string.IsNullOrEmpty(validateErrors))
                 {
-                    await database.InsertPatrimonyItemAsync(item);
+                    PatrimonyItems newItem = mapToPatrimonyItem(item);
+                    await database.InsertPatrimonyItemAsync(newItem);
                     return null;
                 }
             
@@ -117,6 +117,19 @@ namespace hvn_project.Services
 
                 return e.Message;
             }    
+        }
+
+        private PatrimonyItems mapToPatrimonyItem(ItemCreate item)
+        {
+            return new PatrimonyItems()
+            {
+                Id = null,
+                Status = item.Status,
+                CreateDate = item.CreateDate,
+                UpdateDate = item.UpdateDate,
+                Description = item.Description,
+                PatrimonyNumber = item.PatrimonyNumber
+            };
         }
     }
 }
