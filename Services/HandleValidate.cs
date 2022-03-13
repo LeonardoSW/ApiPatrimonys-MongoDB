@@ -1,6 +1,7 @@
 ﻿using hvn_project.Models;
 using hvn_project.Repository;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace hvn_project.Services
         {
             var validation = "";
 
-            bool description = string.IsNullOrEmpty(item.Description);
+            bool description = string.IsNullOrWhiteSpace(item.Description);
             bool status =  item.Status != PatrimonyStatus.Inactive && item.Status != PatrimonyStatus.Active;
             bool patrimony = string.IsNullOrEmpty(item.PatrimonyNumber);
             bool createDate = string.IsNullOrEmpty(item.CreateDate.ToString());
@@ -39,10 +40,16 @@ namespace hvn_project.Services
             return validation;
         }
 
+        internal void validateSearchFilter(string filter)
+        {
+            if (string.IsNullOrWhiteSpace(filter))
+                throw new System.InvalidOperationException("The filter value cannot be null.");
+        }
+
         public async Task<string> validateItemToUpdate(ItemUpdate item)
         {
             bool status = item.Status != PatrimonyStatus.Inactive && item.Status != PatrimonyStatus.Active;
-            bool patrimony = string.IsNullOrEmpty(item.PatrimonyNumber);
+            bool patrimony = string.IsNullOrWhiteSpace(item.PatrimonyNumber);
 
             if (status || patrimony)
                 return "Invalid body json;";
@@ -50,7 +57,7 @@ namespace hvn_project.Services
             var itemAlreadyExists = await database.GetPatrimonyItensByFilterAsync(item.PatrimonyNumber);
 
             if (itemAlreadyExists.Count() == 0)
-                return $"The patrimony number '{item.PatrimonyNumber}' can't updated, patrimony not found. Check the list of patrimonys;";
+                return $"The patrimony number '{item.PatrimonyNumber}' cannot be updated, patrimony not found. Check the list of patrimonys;";
 
             return null;
         }
@@ -58,7 +65,7 @@ namespace hvn_project.Services
         public async Task<string> valideItemToDelete(string id)
         {
             if (string.IsNullOrEmpty(id))
-                return $"The id value to delete can't be null or empty. Check the list of patrimonys;";
+                return $"The id value to delete cannot be null or empty. Check the list of patrimonys;";
 
             var foundItem = await database.GetPatrimonyItemByIdAsync(id);
 

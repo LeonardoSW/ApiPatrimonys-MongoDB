@@ -5,6 +5,7 @@ using hvn_project.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 
 namespace hvn_project.Services
 {
@@ -19,6 +20,7 @@ namespace hvn_project.Services
 
         public async Task<List<PatrimonyItems>> GetListItemsByFilterAsync(string filter)
         {
+            validate.validateSearchFilter(filter);
             try
             {
                 return await database.GetPatrimonyItensByFilterAsync(filter);

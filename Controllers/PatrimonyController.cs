@@ -24,6 +24,12 @@ namespace hvn_project.Controllers
             handlerPatrimony = new HandlerPatrimony();
         }
 
+        [HttpGet("/ping")]
+        public IActionResult TestConnection()
+        {
+            return Ok(Content("pong!"));
+        }
+
         [HttpGet("/patrimony/items/{filter}")]
         public async Task<IActionResult> GetItemsListByFilter([FromRoute] string filter)
         {
@@ -34,7 +40,7 @@ namespace hvn_project.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e.Message);
+                return BadRequest(Content(e.Message));
             }
         }
 
@@ -48,7 +54,7 @@ namespace hvn_project.Controllers
             }
             catch(Exception e)
             {
-                return BadRequest(e.Message);
+                return BadRequest(Content(e.Message));
             }
 
         }

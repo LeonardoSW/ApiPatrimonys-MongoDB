@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bC7HRXhf4gX3Jiu3cCo7URXDxJgp8Q9birAEmQ27dgMuXkWvG7jb7m41WWEGV+hEOSNdwanzDdNBVecsPjw/nw==",
+  "dgSpecHash": "hMyNdz0vXORma5GpLdnBeKguiugyJrjkwLMn3fyXzAFx1ih6MDi3mvEz7wUkvYZumTEDWu/iYUJKPiCg646QpQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\leona\\source\\repos\\hvn-project\\hvn-project.csproj",
+  "projectFilePath": "C:\\Users\\leona\\source\\repos\\new to tests\\hvn-project\\hvn-project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\leona\\.nuget\\packages\\dnsclient\\1.6.0\\dnsclient.1.6.0.nupkg.sha512",
     "C:\\Users\\leona\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",

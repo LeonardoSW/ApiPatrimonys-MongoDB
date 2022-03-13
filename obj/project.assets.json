@@ -850,11 +850,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\leona\\source\\repos\\hvn-project\\hvn-project.csproj",
+      "projectUniqueName": "C:\\Users\\leona\\source\\repos\\new to tests\\hvn-project\\hvn-project.csproj",
       "projectName": "hvn-project",
-      "projectPath": "C:\\Users\\leona\\source\\repos\\hvn-project\\hvn-project.csproj",
+      "projectPath": "C:\\Users\\leona\\source\\repos\\new to tests\\hvn-project\\hvn-project.csproj",
       "packagesPath": "C:\\Users\\leona\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\leona\\source\\repos\\hvn-project\\obj\\",
+      "outputPath": "C:\\Users\\leona\\source\\repos\\new to tests\\hvn-project\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
