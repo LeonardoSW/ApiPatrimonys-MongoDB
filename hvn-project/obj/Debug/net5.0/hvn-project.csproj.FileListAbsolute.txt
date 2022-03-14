@@ -132,3 +132,4 @@ C:\Users\leona\teste\hvn-project\hvn-project\obj\Debug\net5.0\hvn-project.dll
 C:\Users\leona\teste\hvn-project\hvn-project\obj\Debug\net5.0\ref\hvn-project.dll
 C:\Users\leona\teste\hvn-project\hvn-project\obj\Debug\net5.0\hvn-project.pdb
 C:\Users\leona\teste\hvn-project\hvn-project\obj\Debug\net5.0\hvn-project.genruntimeconfig.cache
+C:\Users\leona\teste\hvn-project\hvn-project\obj\Debug\net5.0\hvn-project.csproj.AssemblyReference.cache

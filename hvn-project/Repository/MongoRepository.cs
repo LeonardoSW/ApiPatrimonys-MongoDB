@@ -20,8 +20,7 @@ namespace hvn_project.Repository
         {
             _client = new MongoClient(SettingsVariables.Domain);
             _database = _client.GetDatabase(SettingsVariables.DatabaseName);
-
-            _patrimonyDb = _database.GetCollection<PatrimonyItems>("PatrimonyItems");
+            _patrimonyDb = _database.GetCollection<PatrimonyItems>(SettingsVariables.Collection);
         }
 
         public async Task InsertPatrimonyItemAsync(PatrimonyItems item)
