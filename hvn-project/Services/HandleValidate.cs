@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace hvn_project.Services
 {
-    public class HandleValidate
+    public class HandleValidate : IHandleValidate
     {
         MongoRepository database;
         public HandleValidate()
@@ -40,7 +40,7 @@ namespace hvn_project.Services
             return validation;
         }
 
-        internal void validateSearchFilter(string filter)
+        public void validateSearchFilter(string filter)
         {
             if (string.IsNullOrWhiteSpace(filter))
                 throw new System.InvalidOperationException("The filter value cannot be null.");
