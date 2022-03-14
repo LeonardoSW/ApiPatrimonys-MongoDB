@@ -15,19 +15,17 @@ namespace hvn_project.Controllers
     [Route("[controller]")]
     public class PatrimonyController : ControllerBase
     {
-        private readonly ILogger<PatrimonyController> _logger;
         HandlerPatrimony handlerPatrimony;
 
-        public PatrimonyController(ILogger<PatrimonyController> logger)
+        public PatrimonyController()
         {
-            _logger = logger;
             handlerPatrimony = new HandlerPatrimony();
         }
 
         [HttpGet("/ping")]
         public IActionResult TestConnection()
         {
-            return Ok(Content("pong!"));
+            return Ok("pong!");
         }
 
         [HttpGet("/patrimony/items/{filter}")]

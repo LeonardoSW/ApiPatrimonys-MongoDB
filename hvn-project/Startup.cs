@@ -28,6 +28,7 @@ namespace hvn_project
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IMongoRepository,MongoRepository>();
+            services.AddScoped<IHandleValidate, HandleValidate>();
             services.AddScoped<IHandlerPatrimony, HandlerPatrimony>();
 
             services.AddControllers();

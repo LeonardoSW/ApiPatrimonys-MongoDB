@@ -118,7 +118,6 @@ C:\Users\leona\teste\hvn-project\hvn-project\bin\Debug\net5.0\runtimes\win\nativ
 C:\Users\leona\teste\hvn-project\hvn-project\bin\Debug\net5.0\runtimes\linux\native\libmongocrypt.so
 C:\Users\leona\teste\hvn-project\hvn-project\bin\Debug\net5.0\runtimes\osx\native\libmongocrypt.dylib
 C:\Users\leona\teste\hvn-project\hvn-project\bin\Debug\net5.0\runtimes\win\native\mongocrypt.dll
-C:\Users\leona\teste\hvn-project\hvn-project\obj\Debug\net5.0\hvn-project.csproj.AssemblyReference.cache
 C:\Users\leona\teste\hvn-project\hvn-project\obj\Debug\net5.0\hvn-project.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\leona\teste\hvn-project\hvn-project\obj\Debug\net5.0\hvn-project.AssemblyInfoInputs.cache
 C:\Users\leona\teste\hvn-project\hvn-project\obj\Debug\net5.0\hvn-project.AssemblyInfo.cs

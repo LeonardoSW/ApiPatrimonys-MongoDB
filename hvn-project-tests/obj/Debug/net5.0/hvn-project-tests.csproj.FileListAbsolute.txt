@@ -250,3 +250,4 @@ C:\Users\leona\teste\hvn-project\hvn-project-tests\obj\Debug\net5.0\hvn-project-
 C:\Users\leona\teste\hvn-project\hvn-project-tests\obj\Debug\net5.0\ref\hvn-project-tests.dll
 C:\Users\leona\teste\hvn-project\hvn-project-tests\obj\Debug\net5.0\hvn-project-tests.pdb
 C:\Users\leona\teste\hvn-project\hvn-project-tests\obj\Debug\net5.0\hvn-project-tests.genruntimeconfig.cache
+C:\Users\leona\teste\hvn-project\hvn-project-tests\bin\Debug\net5.0\RestSharp.dll
