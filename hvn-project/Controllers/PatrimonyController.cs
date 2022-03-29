@@ -22,13 +22,13 @@ namespace hvn_project.Controllers
             handlerPatrimony = new HandlerPatrimony();
         }
 
-        [HttpGet("/ping")]
+        [HttpGet("/teste")]
         public IActionResult TestConnection()
         {
             return Ok("pong!");
         }
 
-        [HttpGet("/patrimony/items/{filter}")]
+        [HttpGet("/rotefilter")]
         public async Task<IActionResult> GetItemsListByFilter([FromRoute] string filter)
         {
             try
@@ -42,7 +42,7 @@ namespace hvn_project.Controllers
             }
         }
 
-        [HttpGet("/patrimony/items/list")]
+        [HttpGet("/routelist")]
         public async Task<IActionResult> GetItemsList()
         {
             try
@@ -57,7 +57,7 @@ namespace hvn_project.Controllers
 
         }
 
-        [HttpPost("/patrimony/create")]
+        [HttpPost("/routetocreatewhithparams")]
         public async Task<IActionResult> InsertPatrimony([FromBody] ItemCreate item)
         {
             var insertRespose = await handlerPatrimony.InsertItemAsync(item);
@@ -69,7 +69,7 @@ namespace hvn_project.Controllers
                 return BadRequest(Content($"{insertRespose}"));
         }
 
-        [HttpPut("/patrimony/update")]
+        [HttpPut("/routeupdatewithparams")]
         public async Task<IActionResult> UpdatePatrimony([FromBody] ItemUpdate itemToUpdate)
         {
             var updateResponse = await handlerPatrimony.UpdateItemAsync(itemToUpdate);
@@ -81,7 +81,7 @@ namespace hvn_project.Controllers
                 return BadRequest(Content($"{updateResponse}"));
         }
 
-        [HttpDelete("/patrimony/remove/{database_id}")]
+        [HttpDelete("/idmongodbwithparams")]
         public async Task<IActionResult> DeletePatrimony([FromRoute] string database_id)
         {
             var deleteResponse = await handlerPatrimony.DeleteItemAsync(database_id);

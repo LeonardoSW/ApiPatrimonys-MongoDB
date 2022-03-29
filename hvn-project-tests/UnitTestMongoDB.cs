@@ -24,7 +24,7 @@ namespace hvn_project_tests
             {
                 Id = null,
                 PatrimonyNumber = patrimonyNumberTest,
-                Description = "Ref: Unit Test",
+                Description = "- - -",
                 CreateDate = DateTime.Now,
                 Status = PatrimonyStatus.Inactive,
                 UpdateDate = DateTime.Now

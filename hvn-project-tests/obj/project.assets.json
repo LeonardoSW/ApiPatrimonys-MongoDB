@@ -6253,11 +6253,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\leona\\teste\\hvn-project\\hvn-project-tests\\hvn-project-tests.csproj",
+      "projectUniqueName": "C:\\Users\\leona\\Documents\\Leo\\Alter Project to Public\\hvn-project\\hvn-project-tests\\hvn-project-tests.csproj",
       "projectName": "hvn-project-tests",
-      "projectPath": "C:\\Users\\leona\\teste\\hvn-project\\hvn-project-tests\\hvn-project-tests.csproj",
+      "projectPath": "C:\\Users\\leona\\Documents\\Leo\\Alter Project to Public\\hvn-project\\hvn-project-tests\\hvn-project-tests.csproj",
       "packagesPath": "C:\\Users\\leona\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\leona\\teste\\hvn-project\\hvn-project-tests\\obj\\",
+      "outputPath": "C:\\Users\\leona\\Documents\\Leo\\Alter Project to Public\\hvn-project\\hvn-project-tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -6280,8 +6280,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\leona\\teste\\hvn-project\\hvn-project\\hvn-project.csproj": {
-              "projectPath": "C:\\Users\\leona\\teste\\hvn-project\\hvn-project\\hvn-project.csproj"
+            "C:\\Users\\leona\\Documents\\Leo\\Alter Project to Public\\hvn-project\\hvn-project\\hvn-project.csproj": {
+              "projectPath": "C:\\Users\\leona\\Documents\\Leo\\Alter Project to Public\\hvn-project\\hvn-project\\hvn-project.csproj"
             }
           }
         }
