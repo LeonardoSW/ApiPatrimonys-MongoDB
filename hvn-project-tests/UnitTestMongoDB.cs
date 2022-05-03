@@ -3,8 +3,6 @@ using hvn_project.Repository;
 using hvn_project.Models;
 using System;
 using System.Linq;
-using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
 
 namespace hvn_project_tests
 {

@@ -1,12 +1,7 @@
 ﻿using hvn_project.Models;
 using hvn_project.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace hvn_project.Controllers
@@ -28,7 +23,7 @@ namespace hvn_project.Controllers
             return Ok("pong!");
         }
 
-        [HttpGet("/patrimony/items/{filter}")]
+        [HttpGet("/patrimony/{filter}")]
         public async Task<IActionResult> GetItemsListByFilter([FromRoute] string filter)
         {
             try
@@ -42,7 +37,7 @@ namespace hvn_project.Controllers
             }
         }
 
-        [HttpGet("/patrimony/items/list")]
+        [HttpGet("/patrimony")]
         public async Task<IActionResult> GetItemsList()
         {
             try
@@ -57,7 +52,7 @@ namespace hvn_project.Controllers
 
         }
 
-        [HttpPost("/patrimony/create")]
+        [HttpPost("/patrimony")]
         public async Task<IActionResult> InsertPatrimony([FromBody] ItemCreate item)
         {
             var insertRespose = await handlerPatrimony.InsertItemAsync(item);
@@ -69,7 +64,7 @@ namespace hvn_project.Controllers
                 return BadRequest(Content($"{insertRespose}"));
         }
 
-        [HttpPut("/patrimony/update")]
+        [HttpPut("/patrimony")]
         public async Task<IActionResult> UpdatePatrimony([FromBody] ItemUpdate itemToUpdate)
         {
             var updateResponse = await handlerPatrimony.UpdateItemAsync(itemToUpdate);
@@ -81,7 +76,7 @@ namespace hvn_project.Controllers
                 return BadRequest(Content($"{updateResponse}"));
         }
 
-        [HttpDelete("/patrimony/remove/{database_id}")]
+        [HttpDelete("/patrimony/{database_id}")]
         public async Task<IActionResult> DeletePatrimony([FromRoute] string database_id)
         {
             var deleteResponse = await handlerPatrimony.DeleteItemAsync(database_id);

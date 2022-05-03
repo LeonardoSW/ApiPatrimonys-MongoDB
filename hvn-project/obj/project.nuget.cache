@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bBkrdKbp/WfGdn0aUfak4MXQG+kvP5X6lsGRikiugHDTUclWJh6jhAaup6df/tj3apnM3EqjNCewhHWvJ9rkpw==",
+  "dgSpecHash": "MhXJ+zw2wGTjWPr2R9jQcGSi/jE6sYmEWX2/pWCiD/R6l7rj4syexoNjh2M/0YkQxkyg5b6koYJhyPsvoHwV3w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\leona\\Documents\\Leo\\Alter Project to Public\\hvn-project\\hvn-project\\hvn-project.csproj",
+  "projectFilePath": "C:\\Users\\leona\\source\\repos\\LeonardoSW\\ApiPatrimonys-MongoDB\\hvn-project\\hvn-project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\leona\\.nuget\\packages\\dnsclient\\1.6.0\\dnsclient.1.6.0.nupkg.sha512",
     "C:\\Users\\leona\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
@@ -23,7 +23,10 @@
     "C:\\Users\\leona\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
     "C:\\Users\\leona\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
     "C:\\Users\\leona\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
-    "C:\\Users\\leona\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.16\\microsoft.netcore.app.host.win-x64.5.0.16.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\leona\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }
