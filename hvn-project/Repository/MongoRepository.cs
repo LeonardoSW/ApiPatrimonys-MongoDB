@@ -1,6 +1,7 @@
 ﻿using hvn_project.Models;
 using MongoDB.Driver;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace hvn_project.Repository
@@ -55,7 +56,6 @@ namespace hvn_project.Repository
         public async Task<List<PatrimonyItems>> GetPatrimonyItemByIdAsync(string id)
         {
             var patrimonyFiltered = await _patrimonyDb.FindAsync(d => d.Id == id);
-
             return patrimonyFiltered.ToList();
         }
     }
