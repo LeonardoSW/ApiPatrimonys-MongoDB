@@ -20,7 +20,7 @@ namespace hvn_project.Controllers
         [HttpGet("/ping")]
         public IActionResult TestConnection()
         {
-            return Ok("pong!!");
+            return Ok("pong!!!");
         }
 
         [HttpGet("/patrimony/{filter}")]
