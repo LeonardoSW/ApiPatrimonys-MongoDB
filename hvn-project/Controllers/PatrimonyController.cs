@@ -20,7 +20,7 @@ namespace hvn_project.Controllers
         [HttpGet("/ping")]
         public IActionResult TestConnection()
         {
-            return Ok("pong!");
+            return Ok("pong!!");
         }
 
         [HttpGet("/patrimony/{filter}")]
@@ -45,7 +45,7 @@ namespace hvn_project.Controllers
                 var GetListResponse = await handlerPatrimony.GetListItemsAsync();
                 return Ok(GetListResponse);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return BadRequest(Content(e.Message));
             }
@@ -56,11 +56,11 @@ namespace hvn_project.Controllers
         public async Task<IActionResult> InsertPatrimony([FromBody] ItemCreate item)
         {
             var insertRespose = await handlerPatrimony.InsertItemAsync(item);
-            
-            if (string.IsNullOrEmpty(insertRespose)) 
+
+            if (string.IsNullOrEmpty(insertRespose))
                 return Ok(Content($"Patrimony {item.PatrimonyNumber} created with success!"));
 
-            else 
+            else
                 return BadRequest(Content($"{insertRespose}"));
         }
 
@@ -68,7 +68,7 @@ namespace hvn_project.Controllers
         public async Task<IActionResult> UpdatePatrimony([FromBody] ItemUpdate itemToUpdate)
         {
             var updateResponse = await handlerPatrimony.UpdateItemAsync(itemToUpdate);
-            
+
             if (string.IsNullOrEmpty(updateResponse))
                 return Ok(Content($"Patrimony '{itemToUpdate.PatrimonyNumber}' updated with success!"));
 
@@ -81,7 +81,7 @@ namespace hvn_project.Controllers
         {
             var deleteResponse = await handlerPatrimony.DeleteItemAsync(database_id);
 
-            if(string.IsNullOrEmpty(deleteResponse))
+            if (string.IsNullOrEmpty(deleteResponse))
                 return Ok(Content($"Id '{database_id}' removed with success!"));
 
             else
