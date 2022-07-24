@@ -14,14 +14,13 @@ namespace hvn_project.Controllers
     public class PatrimonyController : ControllerBase
     {
         HandlerPatrimony handlerPatrimony;
-        private readonly IAspNetUser _user;
 
-        public PatrimonyController(IAspNetUser user)
+        public PatrimonyController()
         {
-            _user = user;
             handlerPatrimony = new HandlerPatrimony();
         }
 
+        [AllowAnonymous]
         [HttpGet("/ping")]
         public IActionResult TestConnection()
         {
@@ -41,7 +40,6 @@ namespace hvn_project.Controllers
                 return BadRequest(Content(e.Message));
             }
         }
-
         [HttpGet("/patrimony")]
         public async Task<IActionResult> GetItemsList()
         {

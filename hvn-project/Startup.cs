@@ -1,7 +1,5 @@
 using hvn_project.Configuration;
 using hvn_project.Configuration.Usuario;
-using hvn_project.Repository;
-using hvn_project.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,63 +20,17 @@ namespace hvn_project
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddIdentityConfiguration(Configuration);
+            services.AddApiConfiguration(Configuration);
 
-            services.AddScoped<IMongoRepository,MongoRepository>();
-            services.AddScoped<IHandleValidate, HandleValidate>();
-            services.AddScoped<IHandlerPatrimony, HandlerPatrimony>();
-
-            services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "hvn_project", Version = "v1" });
-
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    Description = "Insira o token JWT desta maneira: Bearer {seu token}",
-                    Name = "Authorization",
-                    Scheme = "Bearer",
-                    BearerFormat = "JWT",
-                    In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey
-                });
-
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement
-                {
-                    {
-                        new OpenApiSecurityScheme
-                        {
-                            Reference = new OpenApiReference
-                            {
-                                Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer"
-                            }
-                        },
-                        new string[] {}
-                    }
-                });
-            });
+            services.AddSwaggerConfiguration();
 
             services.RegisterServices();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "hvn_project v1"));
-            }
-
-            app.UseRouting();
-
-            app.UseAuthConfiguration();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseSwaggerConfiguration(env);
+            app.UseApiConfiguration();
         }
     }
 }
