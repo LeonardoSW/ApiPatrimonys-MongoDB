@@ -1,3 +1,4 @@
+using hvn_project.Configuration;
 using hvn_project.Repository;
 using hvn_project.Services;
 using Microsoft.AspNetCore.Builder;
@@ -20,6 +21,8 @@ namespace hvn_project
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddIdentityConfiguration(Configuration);
+
             services.AddScoped<IMongoRepository,MongoRepository>();
             services.AddScoped<IHandleValidate, HandleValidate>();
             services.AddScoped<IHandlerPatrimony, HandlerPatrimony>();
