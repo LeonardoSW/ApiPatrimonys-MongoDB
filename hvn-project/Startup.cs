@@ -1,4 +1,5 @@
 using hvn_project.Configuration;
+using hvn_project.Configuration.Usuario;
 using hvn_project.Repository;
 using hvn_project.Services;
 using Microsoft.AspNetCore.Builder;
@@ -31,7 +32,34 @@ namespace hvn_project
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "hvn_project", Version = "v1" });
+
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "Insira o token JWT desta maneira: Bearer {seu token}",
+                    Name = "Authorization",
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        new string[] {}
+                    }
+                });
             });
+
+            services.RegisterServices();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -44,6 +72,8 @@ namespace hvn_project
             }
 
             app.UseRouting();
+
+            app.UseAuthConfiguration();
 
             app.UseEndpoints(endpoints =>
             {

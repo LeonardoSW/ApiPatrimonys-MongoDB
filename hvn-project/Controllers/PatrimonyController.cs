@@ -1,19 +1,24 @@
-﻿using hvn_project.Models;
+﻿using hvn_project.Configuration.Usuario;
+using hvn_project.Models;
 using hvn_project.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 
 namespace hvn_project.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class PatrimonyController : ControllerBase
     {
         HandlerPatrimony handlerPatrimony;
+        private readonly IAspNetUser _user;
 
-        public PatrimonyController()
+        public PatrimonyController(IAspNetUser user)
         {
+            _user = user;
             handlerPatrimony = new HandlerPatrimony();
         }
 
