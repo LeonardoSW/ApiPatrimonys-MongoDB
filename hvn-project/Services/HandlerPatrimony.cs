@@ -1,11 +1,10 @@
 ﻿using hvn_project.Repository;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using hvn_project.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
+using hvn_project.Models.Common;
 
 namespace hvn_project.Services
 {
@@ -18,12 +17,14 @@ namespace hvn_project.Services
 
         }
 
-        public async Task<List<PatrimonyItems>> GetListItemsByFilterAsync(string filter)
+        public async Task<ResultBaseOutputModel<List<PatrimonyItems>>> GetListItemsByFilterAsync(string filter)
         {
+            var result = new ResultBaseOutputModel<List<PatrimonyItems>>();
             validate.validateSearchFilter(filter);
             try
             {
-                return await database.GetPatrimonyItensByFilterAsync(filter);
+                result.AddResultOk(await database.GetPatrimonyItensByFilterAsync(filter));
+                return result;
             }
             catch (Exception e)
             {
@@ -31,11 +32,13 @@ namespace hvn_project.Services
             }
         }
 
-        public async Task<List<PatrimonyItems>> GetListItemsAsync()
+        public async Task<ResultBaseOutputModel<List<PatrimonyItems>>> GetListItemsAsync()
         {
+            var result = new ResultBaseOutputModel<List<PatrimonyItems>>();
             try
             {
-                return await database.GetPatrimonyItensListAsync();
+                result.AddResultOk(await database.GetPatrimonyItensListAsync());
+                return result;
             }
             catch (Exception e)
             {
@@ -58,7 +61,7 @@ namespace hvn_project.Services
                     await database.InsertPatrimonyItemAsync(newItem);
                     return null;
                 }
-            
+
                 return validateErrors;
             }
             catch (Exception e)
@@ -97,20 +100,20 @@ namespace hvn_project.Services
         {
             try
             {
-            var validateErrors = await validate.valideItemToDelete(itemId);
+                var validateErrors = await validate.valideItemToDelete(itemId);
 
-            if (string.IsNullOrEmpty(validateErrors))
-            {
-                try
+                if (string.IsNullOrEmpty(validateErrors))
                 {
-                    await database.DeletePatrimonyItemByIdAsync(itemId);
-                    return null;
+                    try
+                    {
+                        await database.DeletePatrimonyItemByIdAsync(itemId);
+                        return null;
+                    }
+                    catch (Exception e)
+                    {
+                        return e.Message;
+                    }
                 }
-                catch (Exception e)
-                {
-                    return e.Message;
-                }
-            }
                 return validateErrors;
 
             }
@@ -118,7 +121,7 @@ namespace hvn_project.Services
             {
 
                 return e.Message;
-            }    
+            }
         }
 
         private PatrimonyItems mapToPatrimonyItem(ItemCreate item)

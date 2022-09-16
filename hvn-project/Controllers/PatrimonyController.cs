@@ -1,5 +1,4 @@
-﻿using hvn_project.Configuration.Usuario;
-using hvn_project.Models;
+﻿using hvn_project.Models;
 using hvn_project.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,23 +7,23 @@ using System.Threading.Tasks;
 
 namespace hvn_project.Controllers
 {
-    [Authorize]
+
     [ApiController]
     [Route("[controller]")]
     public class PatrimonyController : ControllerBase
     {
-        HandlerPatrimony handlerPatrimony;
+        private readonly IHandlerPatrimony _handlerPatrimony;
 
-        public PatrimonyController()
+        public PatrimonyController(IHandlerPatrimony handlerPatrimony)
         {
-            handlerPatrimony = new HandlerPatrimony();
+            _handlerPatrimony = handlerPatrimony;
         }
 
         [AllowAnonymous]
         [HttpGet("/ping")]
         public IActionResult TestConnection()
         {
-            return Ok("pong!!!");
+            return Ok("pong!");
         }
 
         [HttpGet("/patrimony/{filter}")]
@@ -32,7 +31,7 @@ namespace hvn_project.Controllers
         {
             try
             {
-                var GetListByFilterResponse = await handlerPatrimony.GetListItemsByFilterAsync(filter);
+                var GetListByFilterResponse = await _handlerPatrimony.GetListItemsByFilterAsync(filter);
                 return Ok(GetListByFilterResponse);
             }
             catch (Exception e)
@@ -45,7 +44,7 @@ namespace hvn_project.Controllers
         {
             try
             {
-                var GetListResponse = await handlerPatrimony.GetListItemsAsync();
+                var GetListResponse = await _handlerPatrimony.GetListItemsAsync();
                 return Ok(GetListResponse);
             }
             catch (Exception e)
@@ -58,10 +57,10 @@ namespace hvn_project.Controllers
         [HttpPost("/patrimony")]
         public async Task<IActionResult> InsertPatrimony([FromBody] ItemCreate item)
         {
-            var insertRespose = await handlerPatrimony.InsertItemAsync(item);
+            var insertRespose = await _handlerPatrimony.InsertItemAsync(item);
 
             if (string.IsNullOrEmpty(insertRespose))
-                return Ok(Content($"Patrimony {item.PatrimonyNumber} created with success!"));
+                return Ok($"Patrimony {item.PatrimonyNumber} created with success!");
 
             else
                 return BadRequest(Content($"{insertRespose}"));
@@ -70,7 +69,7 @@ namespace hvn_project.Controllers
         [HttpPut("/patrimony")]
         public async Task<IActionResult> UpdatePatrimony([FromBody] ItemUpdate itemToUpdate)
         {
-            var updateResponse = await handlerPatrimony.UpdateItemAsync(itemToUpdate);
+            var updateResponse = await _handlerPatrimony.UpdateItemAsync(itemToUpdate);
 
             if (string.IsNullOrEmpty(updateResponse))
                 return Ok(Content($"Patrimony '{itemToUpdate.PatrimonyNumber}' updated with success!"));
@@ -82,7 +81,7 @@ namespace hvn_project.Controllers
         [HttpDelete("/patrimony/{database_id}")]
         public async Task<IActionResult> DeletePatrimony([FromRoute] string database_id)
         {
-            var deleteResponse = await handlerPatrimony.DeleteItemAsync(database_id);
+            var deleteResponse = await _handlerPatrimony.DeleteItemAsync(database_id);
 
             if (string.IsNullOrEmpty(deleteResponse))
                 return Ok(Content($"Id '{database_id}' removed with success!"));
