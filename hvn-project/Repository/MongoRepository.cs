@@ -17,7 +17,7 @@ namespace hvn_project.Repository
             MongoClient();
         }
 
-        public void MongoClient() 
+        public void MongoClient()
         {
             _client = new MongoClient(SettingsVariables.Domain);
             _database = _client.GetDatabase(SettingsVariables.DatabaseName);

@@ -1,7 +1,5 @@
 ﻿using hvn_project.Models;
 using hvn_project.Repository;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -21,7 +19,7 @@ namespace hvn_project.Services
             var validation = "";
 
             bool description = string.IsNullOrWhiteSpace(item.Description);
-            bool status =  item.Status != PatrimonyStatus.Inactive && item.Status != PatrimonyStatus.Active;
+            bool status = item.Status != PatrimonyStatus.Inactive && item.Status != PatrimonyStatus.Active;
             bool patrimony = string.IsNullOrEmpty(item.PatrimonyNumber);
             bool createDate = string.IsNullOrEmpty(item.CreateDate.ToString());
             bool updateDate = string.IsNullOrEmpty(item.CreateDate.ToString());
@@ -34,7 +32,7 @@ namespace hvn_project.Services
 
             var itemAlreadyExists = await database.GetPatrimonyItensByFilterAsync(item.PatrimonyNumber);
 
-            if(itemAlreadyExists.Count() > 0)
+            if (itemAlreadyExists.Count() > 0)
                 validation += $"The patrimony number '{item.PatrimonyNumber}' is already exists;";
 
             return validation;
@@ -53,10 +51,10 @@ namespace hvn_project.Services
 
             if (status || patrimony)
                 return "Invalid body json;";
-            
+
             var itemAlreadyExists = await database.GetPatrimonyItensByFilterAsync(item.PatrimonyNumber);
 
-            if (itemAlreadyExists.Count() == 0)
+            if (!itemAlreadyExists.Any())
                 return $"The patrimony number '{item.PatrimonyNumber}' cannot be updated, patrimony not found. Check the list of patrimonys;";
 
             return null;
